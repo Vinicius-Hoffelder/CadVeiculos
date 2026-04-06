@@ -8,8 +8,8 @@ public class CadVeiculos {
         int op;
 
         do {
-            System.out.println("\n1-Cadastrar  2-Listar  3-Remover índice");
-            System.out.println("4-Buscar  5-Editar  6-Remover nome  0-Sair");
+            IO.println("\n1-Cadastrar  2-Listar  3-Remover índice");
+            IO.println("4-Buscar  5-Editar  6-Remover nome  0-Sair");
 
             op = Input.readInt("Opção: ");
 
@@ -18,7 +18,7 @@ public class CadVeiculos {
                     String nome = Input.readString("Nome: ");
 
                     if (nome.trim().isEmpty()) {
-                        System.out.println("Inválido");
+                        IO.println("Inválido");
                         break;
                     }
 
@@ -30,31 +30,31 @@ public class CadVeiculos {
                     }
 
                     if (existe) {
-                        System.out.println("Já existe");
+                        IO.println("Já existe");
                     } else {
                         lista.add(nome);
-                        System.out.println("Cadastrado");
+                        IO.println("Cadastrado");
                     }
                     break;
 
                 case 2:
                     if (lista.size() == 0) {
-                        System.out.println("Lista vazia");
+                        IO.println("Lista vazia");
                         break;
                     }
 
                     ordenar();
 
                     for (int i = 0; i < lista.size(); i++) {
-                        System.out.println(i + " - " + lista.get(i));
+                        IO.println(i + " - " + lista.get(i));
                     }
 
-                    System.out.println("Total: " + lista.size());
+                    IO.println("Total: " + lista.size());
                     break;
 
                 case 3:
                     if (lista.size() == 0) {
-                        System.out.println("Lista vazia");
+                        IO.println("Lista vazia");
                         break;
                     }
 
@@ -62,15 +62,15 @@ public class CadVeiculos {
 
                     if (i >= 0 && i < lista.size()) {
                         lista.remove(i);
-                        System.out.println("Removido");
+                        IO.println("Removido");
                     } else {
-                        System.out.println("Erro");
+                        IO.println("Erro");
                     }
                     break;
 
                 case 4:
                     if (lista.size() == 0) {
-                        System.out.println("Lista vazia");
+                        IO.println("Lista vazia");
                         break;
                     }
 
@@ -81,33 +81,33 @@ public class CadVeiculos {
 
                     for (int j = 0; j < lista.size(); j++) {
                         if (lista.get(j).equalsIgnoreCase(busca)) {
-                            System.out.println("Encontrado: " + lista.get(j));
+                            IO.println("Encontrado: " + lista.get(j));
                             achou = true;
                         }
                     }
 
-                    if (!achou) System.out.println("Não encontrado");
+                    if (!achou) IO.println("Não encontrado");
 
-                    System.out.println("Total: " + lista.size());
+                    IO.println("Total: " + lista.size());
                     break;
 
                 case 5:
                     if (lista.size() == 0) {
-                        System.out.println("Lista vazia");
+                        IO.println("Lista vazia");
                         break;
                     }
 
                     int idx = Input.readInt("Índice: ");
 
                     if (idx < 0 || idx >= lista.size()) {
-                        System.out.println("Erro");
+                        IO.println("Erro");
                         break;
                     }
 
                     String novo = Input.readString("Novo nome: ");
 
                     if (novo.trim().isEmpty()) {
-                        System.out.println("Inválido");
+                        IO.println("Inválido");
                         break;
                     }
 
@@ -119,16 +119,16 @@ public class CadVeiculos {
                     }
 
                     if (dup) {
-                        System.out.println("Já existe");
+                        IO.println("Já existe");
                     } else {
                         lista.set(idx, novo);
-                        System.out.println("Editado");
+                        IO.println("Editado");
                     }
                     break;
 
                 case 6:
                     if (lista.size() == 0) {
-                        System.out.println("Lista vazia");
+                        IO.println("Lista vazia");
                         break;
                     }
 
@@ -143,8 +143,8 @@ public class CadVeiculos {
                         }
                     }
 
-                    if (ok) System.out.println("Removido");
-                    else System.out.println("Não encontrado");
+                    if (ok) IO.println("Removido");
+                    else IO.println("Não encontrado");
                     break;
             }
 
